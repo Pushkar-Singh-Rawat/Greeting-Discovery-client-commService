@@ -20,6 +20,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class CommServiceApiImpl implements CommServiceApi{
     @Value("${greeting.message}")
     private String msg;
+    @Value("${external.services.greetingClientService.name}")
+    private String serviceName;
 	@Autowired
 	DiscoveryClient client;
 	
@@ -28,7 +30,7 @@ public class CommServiceApiImpl implements CommServiceApi{
 	public String getFullWelcomeText() {
 		// TODO Auto-generated method stub
 		
-		return getGreetingMessage("greetingClient")+msg;
+		return getGreetingMessage(serviceName)+msg;
 	}
 	
 	public String getGreetingMessage(String serviceName) {
