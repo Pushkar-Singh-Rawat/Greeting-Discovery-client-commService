@@ -22,6 +22,8 @@ public class CommServiceApiImpl implements CommServiceApi{
     private String msg;
     @Value("${external.services.greetingClientService.name}")
     private String serviceName;
+    @Value("${external.services.greetingClientService.path}")
+    private String servicePath;
 	@Autowired
 	DiscoveryClient client;
 	
@@ -41,7 +43,7 @@ public class CommServiceApiImpl implements CommServiceApi{
 			int port=uri.getPort();
 			String pathValue = null;
 			if(serviceName.equalsIgnoreCase("greetingClient"))
-				pathValue="/api/v1/greet";
+				pathValue=servicePath;
 			UriComponents uriComponent=UriComponentsBuilder.newInstance().scheme("http")
 					.host(host).port(port).path(pathValue).build();
 			

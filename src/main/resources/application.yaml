@@ -13,3 +13,4 @@ external:
   services:
     greetingClientService:
       name: greetingClient
+      path: /api/v1/greet
