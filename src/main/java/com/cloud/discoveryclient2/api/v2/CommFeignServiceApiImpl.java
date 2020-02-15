@@ -28,7 +28,7 @@ public class CommFeignServiceApiImpl implements CommServiceApi {
 	public String getFullWelcomeText() {
 		// TODO Auto-generated method stub
 		       //ArithmeticException knowingly thrown to test circuit breaker.s
-		       System.out.println(1/0);
+		      // System.out.println(1/0);
 				return feignService.getMessage()+msg;
 			}
 
